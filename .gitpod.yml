@@ -4,6 +4,7 @@ ports:
     onOpen: open-preview
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/tasks:
+tasks:
   - name: show markdown readme
     # this is a bit of a hack to make sure the VS code server is ready
     command: sleep 3 && open README.md
