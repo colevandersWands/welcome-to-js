@@ -13,5 +13,5 @@ tasks:
   - init: |
       npm install -g study-lenses
       study --port=3000
-      gp url $(gp url 3000)?--defaults
+  - command: gp await-port 3000 && gp preview $(gp url 3000)?--defaults
 
