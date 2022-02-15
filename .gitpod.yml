@@ -1,22 +1,15 @@
-# https://raw.githubusercontent.com/colevandersWands/gitpodding/master/.gitpod.yml
-
-image: gitpod/workspace-mongodb
-
 # List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
 ports:
   - port: 3000
     onOpen: open-preview
 
-# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
-tasks:
-  - command: |
-      mongod
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/tasks:
+  - name: show markdown readme
+    # this is a bit of a hack to make sure the VS code server is ready
+    command: sleep 3 && open README.md
+    openMode: tab-after
+    # https://github.com/lpmi-13/merge-a-matic/blob/main/.gitpod.yml
   - init: |
-      npm install
-      npm run build
-    command: |
-      npm run start
+      npm install -g study-lenses
+      study --port=3000
 
-vscode:
-  extensions:
-    - dbaeumer.vscode-eslint
