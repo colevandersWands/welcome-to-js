@@ -10,8 +10,10 @@ tasks:
     command: sleep 3 && open README.md
     openMode: tab-after
     # https://github.com/lpmi-13/merge-a-matic/blob/main/.gitpod.yml
-  - command: gp await-port 3000 && gp url $(gp url 3000)?--defaults
+  - command: gp await-port 3000 && gp preview $(gp url 3000)/?--defaults
   - init: |
       npm install -g study-lenses
       study --port=3000
-
+ports:
+  - port: 3000
+    onOpen: ignore
